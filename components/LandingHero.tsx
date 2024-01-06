@@ -6,8 +6,19 @@ import { useAuth } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
 import Example from "./mobile";
+import { Instrument_Sans, Ubuntu } from "next/font/google";
+import { User } from "next-auth";
 
-const LandingHero = () => {
+const font = Instrument_Sans({
+  weight: "600",
+  subsets: ["latin"],
+});
+const font_2 = Ubuntu({ weight: "700", subsets: ["latin"] });
+
+type LandingHeroProps = {
+  user?: User;
+};
+const LandingHero = ({user}: LandingHeroProps) => {
   const { isSignedIn } = useAuth();
   return (
     <>
